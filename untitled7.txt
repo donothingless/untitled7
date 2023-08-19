@@ -1,0 +1,46 @@
+
+public partial class changebg : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if(!this.IsPostBack)
+        {
+            ListItem item = new ListItem();
+            item.Text = BorderStyle.None.ToString();
+            item.Value = ((int)BorderStyle.None).ToString();
+            RadioButtonList1.Items.Add(item);
+
+            item = new ListItem();
+            item.Text = BorderStyle.Solid.ToString();
+            item.Value = ((int)BorderStyle.Solid).ToString();
+            RadioButtonList1.Items.Add(item);
+
+            item = new ListItem();
+            item.Text = BorderStyle.Double.ToString();
+            item.Value = ((int)BorderStyle.Double).ToString();
+            RadioButtonList1.Items.Add(item);
+
+            item = new ListItem();
+            item.Text = BorderStyle.Dotted.ToString();
+            item.Value = ((int)BorderStyle.Dotted).ToString();
+            RadioButtonList1.Items.Add(item);
+
+            RadioButtonList1.SelectedIndex = 0;
+        } }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Panel1.BackColor= Color.FromName(DropDownList1.SelectedItem.Text);
+        Label6.Font.Name=DropDownList2.SelectedItem.Text;
+        if(Int32.Parse(TextBox1.Text)>0)
+        {
+        Label6.Font.Size=FontUnit.Point(Int32.Parse(TextBox1.Text));
+        }
+        if (CheckBox1.Checked)
+        {
+            Image1.Visible=true;
+        }
+        else
+        {
+            Image1.Visible=false;}
+        Label6.Text=TextBox2.Text;
+    }}
